@@ -1,7 +1,7 @@
 # Tauri Desktop: Distribution Pipeline + Features — Design Spec
 
 **Date:** 2026-05-24
-**Status:** Draft
+**Status:** Complete (implemented in `desktop/tauri-poc/` and `.forgejo/workflows/desktop-release.yml`)
 **Author:** Sisyphus
 
 ## Overview
