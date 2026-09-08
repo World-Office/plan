@@ -1,0 +1,422 @@
+# Enumerated option sets (aggregated from locale keys)
+
+## Chart types (Common.define.chartData)
+
+- 100% Stacked area
+- 100% Stacked bar
+- 100% Stacked column
+- 100% Stacked line
+- 100% Stacked line with markers
+- 3-D 100% Stacked bar
+- 3-D 100% Stacked column
+- 3-D Clustered bar
+- 3-D Clustered column
+- 3-D Stacked bar
+- 3-D Stacked column
+- 3-D column
+- 3-D line
+- 3-D pie
+- Area
+- Bar
+- Charts
+- Clustered bar
+- Clustered column
+- Clustered column - line
+- Clustered column - line on secondary axis
+- Column
+- Combo
+- Custom combination
+- Doughnut
+- Filled radar
+- Line
+- Line with markers
+- Pie
+- Radar
+- Radar with markers
+- Scatter
+- Scatter with smooth lines
+- Scatter with smooth lines and markers
+- Scatter with straight lines
+- Scatter with straight lines and markers
+- Stacked area
+- Stacked area - clustered column
+- Stacked bar
+- Stacked column
+- Stacked line
+- Stacked line with markers
+- Stock
+- Surface
+- XY (Scatter)
+
+## Slide transitions (PE.Views.Transitions)
+
+- Apply to all slides
+- Blinds
+- Box
+- Box Zoom
+- Checker
+- Circle
+- Clock
+- Clockwise
+- Comb
+- Counterclockwise
+- Cover
+- Cube
+- Cut
+- Delay
+- Diamond
+- Dissolve
+- Doors
+- Duration
+- Dynamic Content
+- Exciting
+- Fade
+- Ferris Wheel
+- Flip
+- From Bottom
+- From Bottom-Left
+- From Bottom-Right
+- From Center
+- From Top
+- From Top-Left
+- From Top-Right
+- From left
+- From right
+- Gallery
+- Honeycomb
+- Horizontal
+- Horizontal In
+- Horizontal Out
+- In
+- Left
+- Letters
+- Morph
+- None
+- Objects
+- Options
+- Orbit
+- Out
+- Plus
+- Preview
+- Push
+- Random
+- Random Bars
+- Right
+- Ripple
+- Rotate
+- Shape
+- Smoothly
+- Split
+- Start On Click
+- Subtle
+- Switch
+- Through Black
+- UnCover
+- Vertical
+- Vertical In
+- Vertical Out
+- Vortex
+- Wedge
+- Window
+- Wipe
+- Words
+- Zoom
+- Zoom In
+- Zoom Out
+- Zoom and Rotate
+- s
+
+## Animation effect families (Common.define.effectData, PE)
+
+-  Left down
+-  Left up
+-  Right down
+-  Right up
+- 1 Spoke
+- 2 Spokes
+- 3 Spokes
+- 4 Point Star
+- 4 Spokes
+- 5 Point Star
+- 6 Point Star
+- 8 Point Star
+- 8 Spokes
+- Across
+- Appear
+- Arc Down
+- Arc Left
+- Arc Right
+- Arc Up
+- Arcs
+- Basic
+- Basic Zoom
+- Basic swivel
+- Bean
+- Blinds
+- Blink
+- Bold Flash
+- Bold Reveal
+- Boomerang
+- Bounce
+- Bounce Left
+- Bounce Right
+- Box
+- Brush color
+- Center revolve
+- Checkerboard
+- Circle
+- Collapse
+- Color pulse
+- Complementary color
+- Complementary color 2
+- Compress
+- Contrast
+- Contrasting color
+- Credits
+- Crescent Moon
+- Curve
+- Curve Down
+- Curve up
+- Curved X
+- Curved square
+- Curvy Left
+- Curvy Right
+- Curvy Star
+- Custom Path
+- Darken
+- Decaying wave
+- Desaturate
+- Diagonal down right
+- Diagonal up right
+- Diamond
+- Disappear
+- Dissolve In
+- Dissolve Out
+- Down
+- Drop
+- Emphasis Effects
+- Entrance Effects
+- Equal triangle
+- Exciting
+- Exit effects
+- Expand
+- Fade
+- Figure 8 Four
+- Fill color
+- Flip
+- Float
+- Float In
+- Float Out
+- Float Up
+- Float down
+- Fly In
+- Fly Out
+- Font Color
+- Football
+- From bottom
+- From bottom-left
+- From bottom-right
+- From left
+- From right
+- From top
+- From top-left
+- From top-right
+- Funnel
+- Grow & Turn
+- Grow with color
+- Grow/Shrink
+- Heart
+- Heartbeat
+- Hexagon
+- Horizontal
+- Horizontal Figure 8
+- Horizontal In
+- Horizontal Out
+- In
+- In from screen center
+- In slightly
+- In to screen bottom
+- In to screen center
+- Inverted square
+- Inverted triangle
+- Left
+- Lighten
+- Line
+- Line color
+- Lines
+- Lines curves
+- Loop de Loop
+- Loops
+- Moderate
+- Motion paths
+- Neutron
+- Object center
+- Object color
+- Octagon
+- Out
+- Out from screen bottom
+- Out slightly
+- Out to screen bottom
+- Out to screen center
+- Parallelogram
+- Peanut
+- Peek In
+- Peek Out
+- Pentagon
+- Pinwheel
+- Plus
+- Point Star
+- Pulse
+- Random Bars 
+- Right
+- Right triangle
+- Rise Up
+- S Curve 1
+- S Curve 2
+- Scribble
+- Shape
+- Shapes
+- Shimmer
+- Shrink & Turn
+- Sine Wave
+- Sink Down
+- Slide Center
+- Special
+- Spin
+- Spinner
+- Spiral In
+- Spiral Out
+- Spiral left
+- Spiral right
+- Split
+- Spring
+- Square
+- Stairs Down
+- Stretch
+- Strips
+- Subtle
+- Swivel
+- Swoosh
+- Teardrop
+- Teeter
+- To Left
+- To bottom
+- To bottom-left
+- To bottom-right
+- To right
+- To top
+- To top-left
+- To top-right
+- Transparency
+- Trapezoid
+- Turn down
+- Turn down right
+- Turn up
+- Turn up right
+- Turns
+- Underline
+- Up
+- Vertical
+- Vertical Figure 8
+- Vertical In
+- Vertical Out
+- Wave
+- Wedge
+- Wheel
+- Whip
+- Wipe
+- Zigzag
+- Zoom
+
+## PDF form field types (PDFE.Views.FormsTab)
+
+- Anyone
+- Checkbox
+- Clear All Fields
+- Clear Fields
+- Combo Box
+- Credit Card
+- Date & Time
+- Email Address
+- Go to the next field
+- Go to the previous field
+- Image
+- Insert ZIP code
+- Insert checkbox
+- Insert combo box
+- Insert credit card number
+- Insert date and time
+- Insert email address
+- Insert image
+- Insert list box
+- Insert phone number
+- Insert radio button
+- Insert text field
+- List Box
+- Next Field
+- Phone Number
+- Previous Field
+- Radio Button
+- Text Field
+- ZIP Code
+
+## Form recipient roles (DE.Views.Role*/FormsTab)
+
+- Add recipients and set the order in which the fillers receive and sign the docum
+- Anyone
+- Are you sure you want to delete the recipient {0}?
+- Are you sure you want to delete the recipient {0}?<br>Once deleted, the default 
+- Create new recipients
+- Delete
+- Delete recipient
+- Edit
+- Edit Recipient
+- Example: Applicant, Client, Sales Rep
+- Manage Recipient Roles
+- Move recipient down
+- Move recipient up
+- New
+- No highlighting
+- No recipients have been created yet.<br>Create at least one recipient and it wil
+- Recipient name
+- Recipient name must not be empty.
+- Recipient with such a name already exists.
+- Select recipient for field merger
+- To delete this recipient, you  need to move the fields associated with it to ano
+- You cannot delete this recipient because it has associated fields.
+
+## AutoCorrect options (Common.Views.AutoCorrectDialog)
+
+- "Straight quotes" with "smart quotes"
+- Add
+- Add period with double-space
+- Any autocorrect you added will be removed and the changed ones will be restored to their original values. Do you want to continue?
+- Any exceptions you added will be removed and the removed ones will be restored. Do you want to continue?
+- Any expression you added will be removed and the removed ones will be restored. Do you want to continue?
+- Apply as you type
+- AutoCorrect
+- AutoFormat as you type
+- Automatic bulleted lists
+- Automatic numbered lists
+- By
+- Capitalize first letter of sentences
+- Capitalize first letter of table cells
+- Delete
+- Don`t capitalize after
+- Exceptions for the language:
+- Exceptions must contain only the letters, uppercase or lowercase.
+- Hyphens (--) with dash (—)
+- Internet and network paths with links
+- Math AutoCorrect
+- Recognized functions
+- Recognized functions must contain only the letters A through Z, uppercase or lowercase.
+- Replace
+- Replace as you type
+- Replace text as you type
+- Reset
+- Reset to default
+- Restore
+- Text AutoCorrect
+- The autocorrect entry for %1 already exists. Do you want to replace it?
+- The autocorrect entry for %1 will be reset to its original value. Do you want to continue?
+- The following expressions are recognized math expressions. They will not be automatically italicized.
