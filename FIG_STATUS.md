@@ -1,10 +1,10 @@
 # Strangler-Fig Status: OnlyOffice DocumentServer → World-Office Rust
 
-Generiert 2026-10-13T18:41:35.646Z, Probes gegen http://127.0.0.1:18113.
+Generiert 2026-10-13T19:08:46.742Z, Probes gegen http://127.0.0.1:18113.
 
 Die Strangler-Fig-Fassade ist der `documentserver`-Container: dieselbe API-Fläche (discovery, WOPI, conversion, editor-Bundles), dahinter bereits der Rust docserver. Dieses Protokoll entscheidet je Capability, ob die OO-Node-Referenz (services/server) ausgeschaltet werden darf.
 
-**States: canonical 6 · shadow 9 · blocked 0 · legacy 1**
+**States: canonical 7 · shadow 8 · blocked 0 · legacy 1**
 
 | Capability | State | Probe | Oracle |
 |---|---|---|---|
@@ -19,7 +19,7 @@ Die Strangler-Fig-Fassade ist der `documentserver`-Container: dieselbe API-Fläc
 | editor-ui-slide | **canonical** | HTTP 200 | census: presence census OK: buttons=46 (baseline 46), fileMenu=true, canvas=0; OO-depth pending |
 | editor-ui-pdf | **canonical** | HTTP 200 | census: presence census OK: buttons=19 (baseline 19), fileMenu=true, canvas=3; OO-depth pending |
 | editor-ui-diagram | **canonical** | HTTP 200 | census: presence census OK: buttons=15 (baseline 15), fileMenu=true, canvas=1; OO-depth pending |
-| collab-ws | **shadow** | skipped (no live probe defined) | none: oracle to be defined |
+| collab-ws | **canonical** | skipped (no live probe defined) | collab: ws broadcast A→B=true B→A=true, late-joiner replay=true; editor-side integration = stage 2 |
 | spellchecker | **shadow** | skipped (no live probe defined) | none: oracle to be defined |
 | command-service | **legacy** | skipped (no live probe defined) | none: oracle to be defined |
 | jwt-auth | **shadow** | skipped (no live probe defined) | none: oracle to be defined |
@@ -34,7 +34,6 @@ Die Strangler-Fig-Fassade ist der `documentserver`-Container: dieselbe API-Fläc
 ### Offene Oracles (blockiert Cutover)
 
 `http`-Probes sind Smokes (Fassade lebt, Formen stimmen grob) — sie allein rechtfertigen keinen Cutover, der echte Kontrakt gegen die OO-Referenz fehlt noch.
-- **collab-ws** — oracle `none`: oracle to be defined
 - **spellchecker** — oracle `none`: oracle to be defined
 - **jwt-auth** — oracle `none`: oracle to be defined
 
