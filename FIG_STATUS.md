@@ -1,10 +1,10 @@
 # Strangler-Fig Status: OnlyOffice DocumentServer → World-Office Rust
 
-Generiert 2026-10-13T18:14:17.728Z, Probes gegen http://127.0.0.1:18113.
+Generiert 2026-10-13T18:26:45.008Z, Probes gegen http://127.0.0.1:18113.
 
 Die Strangler-Fig-Fassade ist der `documentserver`-Container: dieselbe API-Fläche (discovery, WOPI, conversion, editor-Bundles), dahinter bereits der Rust docserver. Dieses Protokoll entscheidet je Capability, ob die OO-Node-Referenz (services/server) ausgeschaltet werden darf.
 
-**States: canonical 1 · shadow 14 · blocked 0 · legacy 1**
+**States: canonical 5 · shadow 10 · blocked 0 · legacy 1**
 
 | Capability | State | Probe | Oracle |
 |---|---|---|---|
@@ -15,10 +15,10 @@ Die Strangler-Fig-Fassade ist der `documentserver`-Container: dieselbe API-Fläc
 | conversion-convert | **shadow** | HTTP 200, status=Success, pdf-bytes=4529 | golden: golden capture pipeline not yet wired (capture-oo-goldens.py exists) |
 | conversion-formats | **shadow** | HTTP 200 | http: probe IS the oracle |
 | editor-ui-word | **canonical** | HTTP 200, ribbon-markers=true | parity-contracts: 6 pass / 0 fail (known-gaps excluded) |
-| editor-ui-sheet | **shadow** | HTTP 200 | census: census-react present, per-type census run not wired |
-| editor-ui-slide | **shadow** | HTTP 200 | census: census-react present, per-type census run not wired |
-| editor-ui-pdf | **shadow** | HTTP 200 | census: census-react present, per-type census run not wired |
-| editor-ui-diagram | **shadow** | HTTP 200 | census: census-react present, per-type census run not wired |
+| editor-ui-sheet | **canonical** | HTTP 200 | census: presence census OK: buttons=34 (baseline 34), fileMenu=true, canvas=3; OO-depth pending |
+| editor-ui-slide | **canonical** | HTTP 200 | census: presence census OK: buttons=46 (baseline 46), fileMenu=true, canvas=0; OO-depth pending |
+| editor-ui-pdf | **canonical** | HTTP 200 | census: presence census OK: buttons=19 (baseline 19), fileMenu=true, canvas=3; OO-depth pending |
+| editor-ui-diagram | **canonical** | HTTP 200 | census: presence census OK: buttons=15 (baseline 15), fileMenu=true, canvas=1; OO-depth pending |
 | collab-ws | **shadow** | skipped (no live probe defined) | none: oracle to be defined |
 | spellchecker | **shadow** | skipped (no live probe defined) | none: oracle to be defined |
 | command-service | **legacy** | skipped (no live probe defined) | none: oracle to be defined |
@@ -35,10 +35,6 @@ Die Strangler-Fig-Fassade ist der `documentserver`-Container: dieselbe API-Fläc
 
 `http`-Probes sind Smokes (Fassade lebt, Formen stimmen grob) — sie allein rechtfertigen keinen Cutover, der echte Kontrakt gegen die OO-Referenz fehlt noch.
 - **conversion-convert** — oracle `golden`: golden capture pipeline not yet wired (capture-oo-goldens.py exists)
-- **editor-ui-sheet** — oracle `census`: census-react present, per-type census run not wired
-- **editor-ui-slide** — oracle `census`: census-react present, per-type census run not wired
-- **editor-ui-pdf** — oracle `census`: census-react present, per-type census run not wired
-- **editor-ui-diagram** — oracle `census`: census-react present, per-type census run not wired
 - **collab-ws** — oracle `none`: oracle to be defined
 - **spellchecker** — oracle `none`: oracle to be defined
 - **jwt-auth** — oracle `none`: oracle to be defined
