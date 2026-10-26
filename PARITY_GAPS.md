@@ -1,3 +1,10 @@
+> ⚠️ **SUPERSEDED 2026-10-26** by the OO→WO deep census (wo-test-harness/census):
+> parity arc closed at OO 269 vs WO 272 rows, deficit 3 (all three structurally
+> not-controls). The asc-gen control clusters below belong to the pre-arc census
+> methodology and are resolved by the honest-matcher gap report. The one "known
+> gap" (ParagraphSettings dialog) is covered by the right panel (AF7/AF15).
+> Historical reference only — do not use as a backlog.
+
 # Word-Office Parity Gaps
 
 Generated 2026-10-13 from word-parity-contracts.json (361 entries, census-oo walk).
