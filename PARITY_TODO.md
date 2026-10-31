@@ -100,10 +100,22 @@
       wo-html 113/113, wo-x2t 439/439. Deployed prod + staging, live
       round-trips verified (no garbage, <hr> survives).
 
+## T-008 divergence rows — DONE (2026-11-01)
+
+- [x] Officially-parked capability planes registered as LOUD divergences
+      (harness `a37d5ab`): macros own-project (plan C12) + capability plane
+      (C13) + forms-as-own-epic. Declared in interact-divergences.json
+      (asc-gen937/939/4556), interact-diff.py promotes declared organic
+      rows to `divergence`, interact-ledger rows flipped, and build.py
+      `REGISTERED_PARKS` marks macros.* + plugins.plugin-manager as
+      divergence:registered with park-reason evidence on every rebuild.
+      Verified: ledger-gap collect_gaps surfaces them as divergence class —
+      the af AI triage classifies them intentional (never work).
+
 ## Next queue
 
-- [ ] T-008 divergence rows / next census refresh to re-arm the af loop
-      (short-term af pool empty).
+- [ ] Next census refresh to re-arm the af loop (short-term af pool empty,
+      parked=61).
 
 ## Notes / traps
 
