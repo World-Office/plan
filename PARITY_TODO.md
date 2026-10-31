@@ -60,6 +60,38 @@
 - [x] Restart staging `collaboration` for clean info logging.
 - [x] Clean `/tmp` debug junk.
 
+## Engine session 2026-10-31 (fresh census + engine slices)
+
+- [x] Fresh census + parity ledger rebuild (harness `954b533`): L0 22→20.
+      `page.none`/`page.automatic` were OO hyphenation menu items, not
+      page-background — now L1 via `toggleHyphenation` (scoped fallback in
+      `build.py`). Honest L0 floor = 12 ctx (CSS/vector/OLE-bound) + 7
+      Chromium/Mac shortcuts + 1 OLE menu-item. Ledger L0/L1/L3 = 20/466/15.
+- [x] Chart dataTable pageerror fix (server `d403c6b09`): chartSVG used
+      undeclared showDataTable/dataTableH/tableRows — any legend-enabled chart
+      threw ReferenceError. Declared + added the missing `chartElement
+      dataTable` toggle. Plus 5 af-merge gate breaks repaired (Cyrillic ToF
+      keys, Dialog.Ok, DIALOG_IDS entries, shape i18n, insertToF→
+      insertTableOfFigures canonicalization, btn-field placement).
+      Suite 105/105 → 106/106.
+- [x] **C5-3 table formulas `=SUM(ABOVE)`** (server `3ea301383`): Table ops →
+      Formula… dialog (SUM/AVERAGE/COUNT/MAX/MIN × ABOVE/BELOW/LEFT/RIGHT),
+      `data-formula` cell engine, live recalc on table structure + cell edits,
+      clear-on-overtype. Gate `table-formula.test.mjs` incl. verbatim-mirror
+      behavior check. OO census has no formula capture → own engine slice,
+      not a parity row. Documented ceiling: full-range scan (OO stops at
+      blanks).
+- [x] C8 equations gap check: **no gap** — all 5 ledger rows L1
+      (btn-equation, Ctrl+Alt+=, ctx EquationSettings).
+- [x] Prod deploy + sweep after each: 0 pageerrors. All pushed (server fleet+
+      github), harness `954b533`.
+
+## Next (unchanged queue)
+
+- [ ] T-006 roundtrip extension (13/13 +
+      extra fixtures) / T-008 divergence rows / next census refresh to re-arm
+      the af loop (short-term af pool empty).
+
 ## Notes / traps
 
 - **Auto-reset trap (RESOLVED 2026-10-13):** an every-2h job used to do
