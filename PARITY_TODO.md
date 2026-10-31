@@ -86,11 +86,24 @@
 - [x] Prod deploy + sweep after each: 0 pageerrors. All pushed (server fleet+
       github), harness `954b533`.
 
-## Next (unchanged queue)
+## T-006 roundtrip extension — DONE (2026-11-01)
 
-- [ ] T-006 roundtrip extension (13/13 +
-      extra fixtures) / T-008 divergence rows / next census refresh to re-arm
-      the af loop (short-term af pool empty).
+- [x] Probes 13 -> 21 (alignment x4, ul/ol lists, hyperlink, <hr>), 21/21
+      survived; ledger L3 15 -> 24 (9 more features proven to persist:
+      bullets, numbering, align-left/center/right/full, insert/references
+      link, ctx.horizontal-line-settings). Harness `e5b4fcb`.
+- [x] Two REAL data-loss bugs caught + fixed in the Rust converter
+      (server `ad7528d06`): (1) html->docx dropped a <p> containing
+      <ul>/<ol> — parser now HTML5-hoists nested blocks out of <p>;
+      (2) <hr> saved as a 24x U+2500 garbage run — now a border-only
+      paragraph (w:pBdr all four sides) that round-trips back to <hr/>.
+      wo-html 113/113, wo-x2t 439/439. Deployed prod + staging, live
+      round-trips verified (no garbage, <hr> survives).
+
+## Next queue
+
+- [ ] T-008 divergence rows / next census refresh to re-arm the af loop
+      (short-term af pool empty).
 
 ## Notes / traps
 
