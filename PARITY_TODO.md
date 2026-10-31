@@ -32,6 +32,15 @@
       m:oMathPara (paragraph-level placement — inside w:r is invalid and
       silently dropped by Word/LO). Reads back to the equation marker.
 
+- [x] Pre-existing trio closed — full suite 1701 passed / 0 failed:
+      (1) a11y keyboard: Styles menu buttons lacked aria-pressed so the mirror
+      never touched them (real markup bug) — declared aria-pressed=false.
+      (2) ai-503: e2e cloud test leaked 'default' into the shared MODEL_REGISTRY,
+      only popped when the e2e file ran first — added finally cleanup.
+      (3) check_file_info golden: python-docx 1.1->1.2 drift changed seed Size —
+      pinned python-docx==1.2.0 + regenerated (diff = Size line only, now reproducible).
+      Commit 1ae99fc20.
+
 ## Session next-steps
 
 - [x] Wire `require_auth` into `src/wopi/router.py` — config-gated gate
@@ -53,10 +62,11 @@
 
 ## Notes / traps
 
-- **Auto-reset trap:** an every-2h job does `git reset --hard origin/main` on
-  `server/`. Any un-pushed commit or working-tree change is destroyed.
-  **Always commit+push before the top of the hour (:58).** Lost commit
-  `0fb301b97` was recovered and is now merged + re-pushed.
+- **Auto-reset trap (RESOLVED 2026-10-13):** an every-2h job used to do
+  `git reset --hard origin/main` on `server/`; un-pushed commits/changes
+  were destroyed (lost `0fb301b97`, recovered + re-pushed). Verified
+  2026-10-13: the job no longer runs — uncommitted wo-agent WIP survived
+  multiple :58 windows overnight. Historical note only.
 - DOCX exporter embeds images via python-docx/PIL: **no SVG**. In-browser SVG
   must be rasterized to PNG (`insertSVGImage`) before insertion.
 - i18n `t()` falls back to the raw key — new `data-i18n` keys must be added

@@ -1,6 +1,6 @@
 # Strangler-Fig Status: OnlyOffice DocumentServer → World-Office Rust
 
-Generiert 2026-10-14T05:30:52.572Z, Probes gegen http://127.0.0.1:18113.
+Generiert 2026-10-14T14:37:38.262Z, Probes gegen http://127.0.0.1:18113.
 
 Die Strangler-Fig-Fassade ist der `documentserver`-Container: dieselbe API-Fläche (discovery, WOPI, conversion, editor-Bundles), dahinter bereits der Rust docserver. Dieses Protokoll entscheidet je Capability, ob die OO-Node-Referenz (services/server) ausgeschaltet werden darf.
 
