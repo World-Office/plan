@@ -112,10 +112,23 @@
       Verified: ledger-gap collect_gaps surfaces them as divergence class —
       the af AI triage classifies them intentional (never work).
 
+## Census refresh — DONE (2026-11-01)
+
+- [x] Fresh WO inventory captured against live prod (harness `478f429`,
+      00:02 UTC): buttons/dialogs/deep/shortcuts/interactions/ctx. Delta:
+      table-ops now carries 'Formula…' (C5-3), bookmark gained data-cmd.
+      Ledger rebuilt UNCHANGED at honest floor (L0=20, L1=457, L3=24;
+      roundtrip 21/21). OO has ZERO formula mentions across all captures ->
+      formula stays an unmeasured feature (C5-3 own gate). af loop REMAINS
+      parked (61 parked rows, no new actionable rows; re-arm only when real
+      new gaps appear). Legacy census/census/ledger.json re-synced.
+
 ## Next queue
 
-- [ ] Next census refresh to re-arm the af loop (short-term af pool empty,
-      parked=61).
+- [ ] af loop re-arm happens only if/when a real new gap row appears
+      (parked=61, no fresh work). Phase 4 candidates: insert-spreadsheet
+      (OLE), backstage-shape divergences, NonBreakingHyphen, optional
+      wo-renderer-wasm lib-test fix.
 
 ## Notes / traps
 
