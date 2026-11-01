@@ -145,11 +145,54 @@ md5-verified, prod sweep 0 pageerrors. **L0 floor 20 → 18**
 (501 {L0:18, L1:459, L3:24}; roundtrip 21/21). Af loop: still parked
 (nothing new actionable); state-p4 receipts all merged.
 
+## Phase 5 — the final 18 L0 rows via af — DONE (2026-11-01, server `24df0680d`, harness `6a6b1ac`)
+
+Root cause of the dry loop: `ledger-gap.py collect_gaps()` only feeds the
+legacy/interact buckets — the 18 level-based L0 rows never entered the
+queue. Fix: hand-wrote honest specs for all 18 (dot-free slugs, receipt
+regex `^WO-(\d+)-([\w-]+)` breaks on dots) directly into `ledger-gap.md`;
+`wo-gen-round.py` parses it without AI triage. Re-armed `wo-loop.service`.
+
+- **Batch 21 (10 ctx rows) — 10/10 merged.** distribute columns/rows (real
+table equalizers; `70d6f064a` extended the direct-main agent commit `e00332b8f`
+with colgroup `<col>` handling — no duplication), distribute horizontally/
+vertically (shift-click multi-select + equal gaps), edit-object (object-dialog
+prefilled, updates placeholder in place), convert-to-shape (shape picker
+replaces placeholder), in-front-of-text/through/tight (obj-front/obj-through
+classes + data-wrap), resize-to-cell (cell content-box). 2 had treat-to-fix
+parallel-merge race failures (rows, horiz, columns, edit-object, through) —
+all recovered on retry; one agent (local-dsv4) wrote main directly once
+(safe: feature + test committed to HEAD, af later merged its own cleaner
+colgroup impl on top).
+- **Batch 22 (8) — 8/8 merged, all attempt 1.** 2 registered divergences
+(edit-points / edit-wrap-boundary — no vector contour model → LOUD ctx rows:
+wo: markers + SetStatus NotAvailable), 6 shortcuts (Cmd/Ctrl+W close-doc,
+Cmd/Ctrl+O open, Ctrl+Alt+F file panel, Opt+Cmd+A comment, Opt+Cmd+X unicode-
+escape→symbol, Shift+Cmd+X strikethrough) — all OO combos matched exactly.
+- **Verification:** editor suite 126/126 (3 agent tests had over-strict
+"exactly one x"/whole-line pins broken by parallel merges — narrowed pins to
+the owning block/line, `24df0680d`); shortcuts-gate PASS; census-shortcuts
+**missing 0** (was 6); census-ctx **missing 0** (was 13). Deployed
+prod+staging (editor.js/i18n.js/index.html/style.css, md5-verified, live
+greps OK), prod+staging **0 pageerrors**.
+- **Ledger rebuilt: L0 18 → 0** (501 {L0:0, L1:477, L3:24}; roundtrip 21/21
+intact; both ledger.json paths synced). The two vector parks registered in
+`interact-divergences.json` + `build.py REGISTERED_PARKS` → divergenced at
+build. Loop exited cleanly (batch 23 empty).
+
+## Completed: full OO↔WO parity coverage (L0 = 0, 2026-11-01)
+
+The 501-feature ledger has no L0 gaps: every feature has at least an L1
+surface or a declared loud divergence. Straight completion of the remaining
+Chromium/Mac-bound shortcut set on future work is bounded by the two
+documented vector subsystems (bezier point/contour editing).
+
 ## Next queue
 
-- [ ] af loop re-arm happens only if/when a real new gap row appears
-      (parked=61, no fresh work). Remaining L0=18: 12 ctx CSS-flow/OLE/
-      vector-bound + 6 Chromium/Mac-bound shortcuts.
+- [x] ~~af loop re-arm~~ DONE 2026-11-01: batches 21–22 ran the final 18 L0
+      rows (16 real, 2 registered divergences), all merged, loop exited
+      cleanly (parked=81, queue empty). Re-arm only if a real new gap row
+      appears.
 
 ## Notes / traps
 
