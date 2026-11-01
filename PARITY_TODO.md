@@ -205,3 +205,25 @@ documented vector subsystems (bezier point/contour editing).
   must be rasterized to PNG (`insertSVGImage`) before insertion.
 - i18n `t()` falls back to the raw key — new `data-i18n` keys must be added
   to the catalog in `web/i18n.js` or stripped.
+
+## L2 ACTS behavioral scoring — DONE (2026-11-01, harness `66d998e`)
+
+Follow-up to Phase 5 (user: "option 1" = L2 scoring). New two-pass live
+behavior probe `census-wo-acts.cjs` + `build.py` L2 merge.
+
+- Probe: in the prod editor (text doc, then a table-seeded doc, caret in
+  cell) it performs a REAL user action per command surface (button click /
+  ctx click / wo-command dispatch) and records whether `#editor` mutated
+  via a page-side MutationObserver (delta over an ambient settle window).
+  Key finding: the prod editor's async WASM model re-sync reverts raw
+  execCommand styling within ~150 ms — innerHTML diffing under-counts badly;
+  the observer catches even transient mutations (durability is L3's job).
+- Dialogs: openers get one primary-action confirm attempt before they count
+  as surface-only. Honest noops recorded for context-dependent actions
+  (multi-cell merge/split, object-in-cell resize) — those stay L1.
+- Results: 209 surfaces, 85 mutated across both passes (text pass 58,
+  table pass +27 table ctx ops). Ledger L2 merge links each L1 row's
+  wo.match to the probe result and promotes only provably-mutating rows.
+- **Ledger 501 → L0 0 · L1 430 · L2 47 · L3 24** (13 acts rows also carry
+  roundtrip persistence, deduped by max()). Re-run census-wo-acts.cjs
+  before a rebuild whenever the editor surface changes.
