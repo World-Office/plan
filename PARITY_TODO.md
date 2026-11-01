@@ -123,12 +123,33 @@
       parked (61 parked rows, no new actionable rows; re-arm only when real
       new gaps appear). Legacy census/census/ledger.json re-synced.
 
+## Phase 4 af campaign — DONE (2026-11-01, server `5947d034a`, harness `2d06e03`)
+
+Run via af (3 tasks, all merged attempt-1, empty drain):
+- [x] **insert-spreadsheet (OLE)** — Insert tools > Spreadsheet menuitem →
+      openObjectDialog("spreadsheet") → OLE placeholder `data-type=spreadsheet`;
+      option added to #object-type, i18n Insert.Spreadsheet en+de. Ledger
+      `insert.insert-spreadsheet` L0→L1 (menu:btn-insert-more).
+- [x] **NonBreakingHyphen** — Ctrl+Shift+Minus = U+2011 (OO true). Dash-trio
+      root-cause fix: En dash moved to Ctrl+Minus (preventDefault blocks
+      browser zoom-out) → `shortcut.nonbreakinghyphen` AND `shortcut.endash`
+      both re-scored matched. shortcuts-gate 26 pins still pass.
+- [x] **wo-renderer-wasm lib-test fix** — DocxBody `..Default::default()` in
+      table_interaction_tests.rs + navigation_tests.rs (E0063 missing
+      fields) → `cargo test -p wo-renderer-wasm --lib` 153/153.
+- [ ] ~~backstage-shape divergences~~ — NOT ACTIONABLE: no shape items exist
+      in either OO or WO backstage census captures; follow-up was vague
+      shorthand, nothing to do.
+Full editor suite 108/108; deployed prod+staging (shared static mount),
+md5-verified, prod sweep 0 pageerrors. **L0 floor 20 → 18**
+(501 {L0:18, L1:459, L3:24}; roundtrip 21/21). Af loop: still parked
+(nothing new actionable); state-p4 receipts all merged.
+
 ## Next queue
 
 - [ ] af loop re-arm happens only if/when a real new gap row appears
-      (parked=61, no fresh work). Phase 4 candidates: insert-spreadsheet
-      (OLE), backstage-shape divergences, NonBreakingHyphen, optional
-      wo-renderer-wasm lib-test fix.
+      (parked=61, no fresh work). Remaining L0=18: 12 ctx CSS-flow/OLE/
+      vector-bound + 6 Chromium/Mac-bound shortcuts.
 
 ## Notes / traps
 
