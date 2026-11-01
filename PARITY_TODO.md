@@ -227,3 +227,15 @@ behavior probe `census-wo-acts.cjs` + `build.py` L2 merge.
 - **Ledger 501 → L0 0 · L1 430 · L2 47 · L3 24** (13 acts rows also carry
   roundtrip persistence, deduped by max()). Re-run census-wo-acts.cjs
   before a rebuild whenever the editor surface changes.
+
+### L2 extension — keyboard sweep for shortcuts (2026-11-01, harness `bdec86a`)
+
+Third probe pass (C): trusted-keyboard dispatch (Playwright keyboard.press)
+over all 147 OO-shortcut census combos, sharing the observer/confirm core.
+Result keys aliased `shortcut:<canon>`; build.py combo extractor joins the
+shortcut rows. Ledger **L2 47 → 76**: L0 0 · L1 401 · L2 76 · L3 24
+(22 control, 3 menu, 30 shortcut, 21 ctx). Real evidence: Ctrl+B italic+span,
+Ctrl+I, Ctrl+M blockquote indent, Ctrl+Alt+1/2/3 headings, Ctrl+Minus em-dash,
+Ctrl+Shift+8 bullets, Ctrl+Alt+E/G endnote, etc. Gotchas: capture nests rows
+under `shortcuts:`; Playwright `Control+B` == Ctrl+Shift+B → lowercase letters.
+W/P close/print + pure caret-nav series intentionally not probed (never mutate).
