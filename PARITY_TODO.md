@@ -269,3 +269,17 @@ as evidence, and build.py's static combo→command transitivity table
 (hand-verified against editor.js keydown ~10783–10990) lifts combos bound to
 acts-proven commands. build.py reads captures from `census/census/`
 (`ledger/../census/` is the captures subdir).
+
+### L3 depth — indent/outdent roundtrip probes (2026-11-02, harness `efa228d`)
+
+L3 **24 → 26** (L0 0 · L1 390 · L2 85 · L3 26 · L4 0; totals 501 unchanged).
+
+roundtrip.cjs +3 probes:
+- `indent` (expect/survive `blockquote|margin-left`, xml `w:ind w:left`) — PASS
+- `outdent` (two-step indent→outdent; notExpect proves the indent unwound) — PASS
+- `insertPageNumber` — **honest FAIL**: acts (L2) but the PAGE field does
+  not survive html→docx→html even at document.xml level (xml fallback
+  missed too). Converter gap queued; the row stays L2.
+
+indent/outdent rows moved L2→L3 via roundtrip durability (build.py
+max(level,3) dedup explains L2 87→85).
