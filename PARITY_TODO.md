@@ -239,3 +239,33 @@ Ctrl+I, Ctrl+M blockquote indent, Ctrl+Alt+1/2/3 headings, Ctrl+Minus em-dash,
 Ctrl+Shift+8 bullets, Ctrl+Alt+E/G endnote, etc. Gotchas: capture nests rows
 under `shortcuts:`; Playwright `Control+B` == Ctrl+Shift+B → lowercase letters.
 W/P close/print + pure caret-nav series intentionally not probed (never mutate).
+
+### L2 hardening — object pass + union evidence + transitivity (2026-11-02, harness `a1d2c98`)
+
+L2 **76 → 87** (L0 0 · L1 390 · L2 87 · L3 24; mix 23 control / 3 menu / 30 shortcut / 31 ctx-menu).
+
+What changed in census-wo-acts.cjs:
+- **Pass D (object)**: seeds a real `div.object` placeholder (editor's own
+  object model — `.obj-*` classes are layout-only), mousedown-picks it,
+  re-sweeps tabs + object ctx menu. All six wrap ops act (WrapInline/Square/
+  Behind/Front/Tight/Through = layout-class mutations).
+- **Quiescence gate**: wait for a 150ms zero-mutation window before
+  dispatching; `mutated` = any mutation on a clean baseline. Kills false
+  noops from async model re-sync churn.
+- **Range-API selection created immediately before dispatch**: the model's
+  async re-render detaches older Ranges, and execCommand on detached nodes
+  silently no-ops — the root cause behind most "formatting is flaky" churn.
+- **WO_ACTS_IN cross-run accumulation**: mutated-union of prior captures, so
+  evidence converges monotonically (rerun-the-flaky-test model).
+- Keyboard = synthetic KeyboardEvent on #editor (Playwright press can't
+  reach the editor: headless never focuses the contenteditable).
+
+**Environment constraint (honest documentation)**: the persisted live doc
+saves probe artifacts (the seeded table), so reloads re-sync it and
+execCommand across the table boundary refuses to mutate — keyboard formatting
+observations aren't reliably re-producible. Two mitigations:
+`census-wo-acts-legacy.json` folds the committed bdec86a probe keys back in
+as evidence, and build.py's static combo→command transitivity table
+(hand-verified against editor.js keydown ~10783–10990) lifts combos bound to
+acts-proven commands. build.py reads captures from `census/census/`
+(`ledger/../census/` is the captures subdir).
