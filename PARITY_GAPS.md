@@ -1,6 +1,6 @@
 # Word-Office Parity Gaps
 
-Generated 2026-11-04 from word-parity-contracts.json (502 entries, census-oo walk).
+Generated 2026-11-07 from word-parity-contracts.json (594 entries, census-oo walk).
 
 This report is the explicit replacement for the implicit "covered" balance: every OO control that WO does NOT fully mirror appears here with tab, control, and what exactly is missing.
 
